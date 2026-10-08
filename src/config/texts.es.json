@@ -1,0 +1,30 @@
+{
+  "app": {
+    "title": "Pokémon Trainer",
+    "description": "Tu aventura comienza con un equipo.",
+    "navigation": "Navegación principal"
+  },
+  "navigation": {
+    "setup": "Entrenador",
+    "team": "Equipo",
+    "profile": "Perfil"
+  },
+  "setup": {
+    "title": "Configura tu perfil de entrenador",
+    "description": "Aquí construiremos el formulario con foto, nombre, pasatiempo, fecha de nacimiento y documento de identificación."
+  },
+  "team": {
+    "title": "Elige tu equipo Pokémon",
+    "description": "Aquí podrás buscar entre los primeros 151 Pokémon y seleccionar exactamente 3."
+  },
+  "profile": {
+    "title": "Tu perfil de entrenador",
+    "description": "Aquí mostraremos tu información y las estadísticas de tu equipo."
+  },
+  "common": {
+    "pending": "Pantalla en preparación",
+    "back": "Volver al inicio",
+    "loading": "Cargando…",
+    "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo."
+  }
+}
