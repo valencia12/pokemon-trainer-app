@@ -129,7 +129,8 @@
     "loading": "Cargando…",
     "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo.",
     "storageError": "Tus datos están disponibles en esta sesión, pero no pudimos guardarlos en el navegador. Podrían perderse al recargar.",
-    "unavailable": "No disponible"
+    "unavailable": "No disponible",
+    "environmentError": "Configura VITE_POKE_API_BASE_URL con una URL válida que use HTTP o HTTPS."
   },
   "home": {
     "title": "Tu aventura Pokémon",

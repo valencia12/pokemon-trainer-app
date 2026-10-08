@@ -1,14 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from './Icon'
 import { texts } from '../../lib/config'
-import { getSavedTheme, saveTheme } from '../../lib/theme'
+import { applyTheme, getSavedTheme, getStoredTheme, saveTheme } from '../../lib/theme'
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState(getSavedTheme)
   const isDark = theme === 'dark'
+  const manuallySelected = useRef(false)
+
+  useEffect(() => {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    function followSystem() {
+      if (manuallySelected.current || getStoredTheme() !== null) return
+      const nextTheme = systemTheme.matches ? 'dark' : 'light'
+      applyTheme(nextTheme, true)
+      setTheme(nextTheme)
+    }
+    systemTheme.addEventListener('change', followSystem)
+    followSystem()
+    return () => systemTheme.removeEventListener('change', followSystem)
+  }, [])
 
   function toggleTheme() {
     const nextTheme = isDark ? 'light' : 'dark'
+    manuallySelected.current = true
     saveTheme(nextTheme)
     setTheme(nextTheme)
   }

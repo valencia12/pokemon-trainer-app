@@ -112,6 +112,7 @@ un equipo de tres Pokémon.
 
 ```sh
 npm ci
+cp .env.example .env
 npm run dev
 npm run build
 npm run lint
@@ -235,3 +236,19 @@ excluida del control de versiones mediante `.gitignore`.
 El catálogo utiliza TanStack Virtual para renderizar las filas visibles y dos filas adicionales. Las columnas se ajustan al ancho del contenedor y las filas se miden para respetar el contenido. Una búsqueda nueva vuelve al inicio sin borrar la selección.
 
 Las estadísticas utilizan Swiper: una tarjeta en contenedores pequeños, dos desde 480 px y tres desde 760 px. Se puede deslizar, usar las flechas del teclado o las flechas situadas en los extremos del carrusel. Los textos accesibles están en `src/config/texts.es.json`.
+
+## Variable de entorno
+
+La URL base de PokéAPI se configura en `.env`:
+
+```dotenv
+VITE_POKE_API_BASE_URL=https://pokeapi.co/api/v2/
+```
+
+`src/lib/env.ts` lee la variable y valida que sea una URL HTTP o HTTPS. Acepta la URL con o sin barra final. El cliente HTTP la utiliza para todas las consultas. Los paths de los endpoints permanecen en `src/config/endpoints.json`.
+
+El archivo `.env` se ignora en Git; `.env.example` sirve de plantilla. Reinicia `npm run dev` después de cambiar la variable. En el proveedor de despliegue configura la misma variable antes de ejecutar `npm run build`; publica la carpeta `dist` y habilita la redirección de rutas a `index.html`. Las variables `VITE_` son públicas en el navegador.
+
+El plan de pruebas básico está en [TEST_PLAN.md](TEST_PLAN.md).
+
+El tema sigue la preferencia del sistema mientras no exista una elección manual guardada. Al usar la luna, se conserva el tema elegido. Los cambios de color tienen una transición suave de 280 ms, desactivada cuando el usuario solicita movimiento reducido. La carga inicial no se anima.
