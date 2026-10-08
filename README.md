@@ -51,12 +51,7 @@ El repositorio usa Gitflow. Las ramas de funcionalidades parten de `develop`.
 - `release/...`: preparación de entregas desde `develop`; se integra en `main` y `develop`.
 - `hotfix/...`: correcciones urgentes desde `main`; se integra en `main` y `develop`.
 
-Las ramas iniciales de trabajo son:
-
-- `feature/gitflow-workflow`: configuración del repositorio y flujo de trabajo.
-- `feature/trainer-setup`: formulario, validaciones y persistencia del entrenador.
-- `feature/pokemon-selection`: carga, búsqueda y selección del equipo.
-- `feature/trainer-profile`: perfil, estadísticas y edición del entrenador y equipo.
+Cada rama `feature/...` se crea al comenzar la funcionalidad correspondiente.
 
 Las ramas `release/...` y `hotfix/...` se crean cuando hay una entrega o una
 corrección concreta que preparar.
@@ -70,7 +65,7 @@ Ejemplo para la siguiente funcionalidad:
 
 ```sh
 git switch develop
-git switch feature/trainer-setup
+git switch -c feature/trainer-setup
 # Implementar y verificar la funcionalidad antes de crear su commit.
 git add src README.md
 git commit -m "feat: implement trainer setup"
