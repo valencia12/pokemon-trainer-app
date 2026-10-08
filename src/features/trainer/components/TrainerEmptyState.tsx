@@ -19,7 +19,7 @@ export function TrainerEmptyState() {
     document.getElementById('trainer-name')?.focus()
   }
 
-  return <EmptyState image={emptyTrainerImage} title={copy.emptyTitle} description={copy.emptyDescription} action={pathname === routes.setup
+  return <EmptyState image={emptyTrainerImage} title={copy.emptyTitle} description={copy.emptyDescription} action={(pathname === routes.setup || pathname === routes.newTrainer)
     ? <button type="button" className={actionClassName} onClick={focusForm}>{actionContent}</button>
-    : <Link to={routes.setup} className={actionClassName}>{actionContent}</Link>} />
+    : <Link to={routes.newTrainer} className={actionClassName}>{actionContent}</Link>} />
 }

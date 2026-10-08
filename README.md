@@ -23,8 +23,7 @@ la navegación aparece arriba y los paneles se apilan. El tema oscuro conserva
 el fondo negro azabache; los controles usan grises y conservan acentos amarillos Pokémon.
 
 El inicio mantiene su menú previo al formulario. La página del entrenador combina
-el formulario con el perfil guardado. Guardar actualiza el panel sin salir de la
-pantalla; «Continuar» abre el equipo o el resumen según el progreso. «Limpiar»
+el formulario con el perfil guardado. Guardar abre la vista de revisión con el panel actualizado; «Continuar» abre el equipo o el resumen según el progreso. «Limpiar»
 limpia solo el formulario; no borra el perfil guardado.
 
 El estado vacío usa la imagen de Pikachu proporcionada y el mensaje de que aún no hay
@@ -32,9 +31,56 @@ entrenadores configurados. Su acción abre el formulario desde el inicio; si ya
 estás en el formulario, enfoca el campo de nombre. No se crean perfiles de ejemplo.
 La ilustración decorativa está en `src/assets/pikachu-empty-state.png`.
 
-Por ahora existe un solo perfil por navegador. El panel muestra datos reales,
+Se pueden guardar varios entrenadores, cada uno con su propio equipo de Pokémon.
+«Crear un nuevo entrenador» abre un formulario vacío sin reemplazar perfiles.
+Seleccionar una tarjeta muestra la información de ese entrenador en `/entrenador/ver`.
+«Editar» abre su formulario y «Continuar» abre su equipo o resumen.
+No hay un límite fijo de perfiles; la capacidad depende del almacenamiento del
+navegador y el tamaño de las fotos. Se avisa cuando no se pueden persistir cambios.
+El perfil guardado con la versión anterior se recupera como primer entrenador,
+conservando también su equipo. El formato nuevo se guarda bajo `pokemon-trainer:v2`. El panel muestra datos reales,
 sin entrenadores de ejemplo. Los componentes `Panel`, `Icon`, `WorkflowHeader`
 y `ConfiguredTrainerPanel` se reutilizan entre las vistas.
+
+## Selección de Pokémon
+
+La pantalla de equipo consulta los primeros 151 Pokémon y sus detalles en PokeAPI.
+Las peticiones se limitan a seis simultáneas y los resultados se conservan en memoria
+para reutilizarlos durante la sesión. Los sprites se leen de
+`sprites.other.home.front_default`, sin construir URLs de imágenes manualmente.
+
+Se puede buscar por nombre parcial o ID exacto (también `#025`). El equipo admite
+exactamente tres Pokémon diferentes. Al completar los espacios, se pueden quitar
+miembros para seleccionar otros. Guardar persiste el equipo y abre el perfil con sus estadísticas. Editar el equipo recupera los IDs guardados.
+
+Los fallos de red muestran un botón para reintentar. Salir de la pantalla cancela
+las peticiones. El loader global se mantiene activo durante la carga del catálogo.
+La imagen tiene un reemplazo si no está disponible. Los tipos y etiquetas están
+en el JSON de textos, y el tamaño del equipo en `src/config/pokemon.json`.
+
+## Directorio de equipos
+
+El menú «Equipos Pokémon» abre `/equipos`, donde se muestran todos los entrenadores
+y sus equipos. «Elegir Pokémon» permite completar un equipo vacío; «Editar equipo»
+recupera la selección guardada. «Ver equipo y estadísticas» abre el resumen cuando
+hay tres miembros. Cada acción activa al entrenador correspondiente antes de navegar.
+La ruta del directorio siempre está disponible; sin entrenadores muestra una acción
+para crear el primero. También se puede acceder desde el menú de inicio.
+
+## Perfil y estadísticas
+
+El resumen muestra foto, nombre, pasatiempo y edad calculada. El documento se
+muestra solo cuando tiene contenido, como DUI o carnet según la edad.
+Los botones de edición abren los datos y el equipo del entrenador activo.
+
+Cada Pokémon muestra su sprite HOME, nombre, tipos y seis barras. Los máximos
+están en `src/config/pokemon.json`: HP 255, ataque 190, defensa 230,
+ataque especial 194, defensa especial 230 y velocidad 180. El porcentaje es
+`valor / máximo × 100`; la barra se limita al 100 % sin ocultar el valor original.
+
+Al recargar el perfil se consultan solo sus tres Pokémon. La caché de sesión
+reutiliza los detalles ya cargados. Los fallos permiten reintentar y salir cancela
+las peticiones. Cambiar de entrenador no muestra datos del equipo anterior.
 
 ## Calendario
 
@@ -58,7 +104,7 @@ Los datos se guardan en localStorage y se recuperan al recargar. Si el navegador
 no permite guardarlos, se muestra un aviso y la aplicación sigue funcionando
 durante la sesión. La foto admite JPG, PNG y WebP hasta 2 MB.
 
-La selección de Pokémon y la pantalla de perfil todavía están pendientes.
+Los flujos de entrenador, selección de equipo y resumen del perfil están implementados.
 Las rutas de equipo y perfil requieren un entrenador; el perfil también requiere
 un equipo de tres Pokémon.
 
@@ -183,3 +229,9 @@ excluida del control de versiones mediante `.gitignore`.
 ## Repositorio
 
 [pokemon-trainer-app](https://github.com/valencia12/pokemon-trainer-app)
+
+### Catálogo y tarjetas del equipo
+
+El catálogo utiliza TanStack Virtual para renderizar las filas visibles y dos filas adicionales. Las columnas se ajustan al ancho del contenedor y las filas se miden para respetar el contenido. Una búsqueda nueva vuelve al inicio sin borrar la selección.
+
+Las estadísticas utilizan Swiper: una tarjeta en contenedores pequeños, dos desde 480 px y tres desde 760 px. Se puede deslizar, usar las flechas del teclado o las flechas situadas en los extremos del carrusel. Los textos accesibles están en `src/config/texts.es.json`.

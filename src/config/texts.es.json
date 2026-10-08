@@ -47,18 +47,89 @@
   },
   "team": {
     "title": "Elige tu equipo Pokémon",
-    "description": "Aquí podrás buscar entre los primeros 151 Pokémon y seleccionar exactamente 3."
+    "description": "Aquí podrás buscar entre los primeros 151 Pokémon y seleccionar exactamente 3.",
+    "catalogTitle": "Pokémon de primera generación",
+    "catalogDescription": "Busca tus favoritos y selecciona los tres que te acompañarán.",
+    "search": "Buscar Pokémon",
+    "searchPlaceholder": "Nombre o número, por ejemplo Pikachu o 25",
+    "results": "Pokémon encontrados",
+    "noResults": "No encontramos Pokémon con esa búsqueda.",
+    "clearSearch": "Limpiar búsqueda",
+    "retry": "Reintentar",
+    "error": "No pudimos cargar los Pokémon. Revisa tu conexión e inténtalo de nuevo.",
+    "selectedTitle": "Tu equipo",
+    "selectedDescription": "Elige exactamente tres Pokémon diferentes.",
+    "slots": "Pokémon seleccionados",
+    "emptySlot": "Espacio disponible",
+    "select": "Seleccionar",
+    "remove": "Quitar",
+    "selected": "Seleccionado",
+    "limit": "Tu equipo está completo. Quita un Pokémon para elegir otro.",
+    "save": "Guardar equipo y continuar",
+    "saved": "Equipo guardado.",
+    "editTrainer": "Editar entrenador",
+    "imageUnavailable": "Imagen no disponible",
+    "unsaved": "Los cambios se guardan al confirmar el equipo.",
+    "incomplete": "Completa los tres espacios para continuar.",
+    "types": {
+      "normal": "Normal",
+      "fire": "Fuego",
+      "water": "Agua",
+      "electric": "Eléctrico",
+      "grass": "Planta",
+      "ice": "Hielo",
+      "fighting": "Lucha",
+      "poison": "Veneno",
+      "ground": "Tierra",
+      "flying": "Volador",
+      "psychic": "Psíquico",
+      "bug": "Bicho",
+      "rock": "Roca",
+      "ghost": "Fantasma",
+      "dragon": "Dragón",
+      "dark": "Siniestro",
+      "steel": "Acero",
+      "fairy": "Hada"
+    },
+    "catalogLabel": "Catálogo de Pokémon"
   },
   "profile": {
     "title": "Tu perfil de entrenador",
-    "description": "Aquí mostraremos tu información y las estadísticas de tu equipo."
+    "description": "Tu información y las estadísticas de tu equipo Pokémon.",
+    "trainerDescription": "Los datos de tu entrenador activo.",
+    "teamTitle": "Estadísticas del equipo",
+    "teamDescription": "Las barras muestran cada estadística respecto a su límite máximo.",
+    "editProfile": "Editar perfil",
+    "editTeam": "Editar equipo",
+    "backToTrainers": "Volver a los entrenadores",
+    "notSpecified": "Sin especificar",
+    "teamError": "No pudimos cargar las estadísticas de tu equipo. Inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "stats": {
+      "hp": "Salud (HP)",
+      "attack": "Ataque",
+      "defense": "Defensa",
+      "special-attack": "Ataque especial",
+      "special-defense": "Defensa especial",
+      "speed": "Velocidad"
+    },
+    "viewComplete": "Ver resumen y estadísticas",
+    "carousel": {
+      "previous": "Pokémon anterior",
+      "next": "Pokémon siguiente",
+      "container": "Equipo del entrenador",
+      "containerRole": "Carrusel",
+      "itemRole": "Tarjeta de Pokémon",
+      "slide": "Pokémon {{index}} de {{slidesLength}}"
+    }
   },
   "common": {
     "pending": "Pantalla en preparación",
     "back": "Volver al inicio",
     "loading": "Cargando…",
     "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo.",
-    "storageError": "Tus datos están disponibles en esta sesión, pero no pudimos guardarlos en el navegador. Podrían perderse al recargar."
+    "storageError": "Tus datos están disponibles en esta sesión, pero no pudimos guardarlos en el navegador. Podrían perderse al recargar.",
+    "unavailable": "No disponible"
   },
   "home": {
     "title": "Tu aventura Pokémon",
@@ -86,7 +157,7 @@
     "headerLabel": "Panel del entrenador",
     "accountLabel": "Entrenador",
     "trainersNav": "Entrenadores",
-    "pokemonNav": "Pokémon",
+    "pokemonNav": "Equipos Pokémon",
     "summaryNav": "Resumen",
     "lockedHint": "Completa los pasos anteriores para continuar.",
     "sidebarMotto": "Explora\nEntrena\nColecciona\nTu propia historia",
@@ -108,7 +179,7 @@
     ],
     "formTitle": "Información del entrenador",
     "savedTitle": "Entrenador configurado",
-    "savedDescription": "Continúa con tu entrenador o edita su información.",
+    "savedDescription": "Selecciona una tarjeta para revisar su perfil o usa Editar para cambiar sus datos.",
     "continue": "Continuar",
     "emptyTitle": "Aún no hay entrenadores configurados",
     "emptyDescription": "Crea tu primer perfil para comenzar tu aventura.",
@@ -116,7 +187,7 @@
     "welcomeTitle": "Prepara tu próxima aventura",
     "welcomeDescription": "Elige cómo quieres continuar.",
     "returnTitle": "¡Listo para continuar!",
-    "returnDescription": "Tu perfil ya está guardado. Completa tu equipo o edita tus datos en el menú.",
+    "returnDescription": "Continúa con el entrenador activo o selecciona otro de tus perfiles guardados.",
     "localHint": "Tu progreso se guarda automáticamente en este navegador.",
     "savedMessage": "Perfil guardado. Puedes continuar desde el panel del entrenador.",
     "documentTitle": "Documento de identificación",
@@ -129,9 +200,14 @@
     "hobbyPlaceholder": "Ej. Atrapar Pokémon, explorar, dibujar…",
     "teamReady": "Tu equipo está completo. Puedes consultar tu perfil y continuar tu aventura.",
     "emptyPanelTitle": "Entrenadores configurados",
-    "emptyPanelDescription": "Aquí aparecerá tu perfil cuando lo guardes.",
+    "emptyPanelDescription": "Aquí aparecerán tus entrenadores cuando guardes sus perfiles.",
     "createFirst": "Crear tu primer entrenador",
-    "createFirstHint": "Completa tu perfil y da el primer paso en tu viaje Pokémon."
+    "createFirstHint": "Completa tu perfil y da el primer paso en tu viaje Pokémon.",
+    "createNew": "Crear un nuevo entrenador",
+    "edit": "Editar",
+    "activeTrainer": "Entrenador activo",
+    "independentTeams": "Cada entrenador conserva su propio equipo Pokémon.",
+    "reviewTrainer": "Revisar perfil de"
   },
   "calendar": {
     "placeholder": "dd/mm/aaaa",
@@ -176,5 +252,17 @@
       "S",
       "D"
     ]
+  },
+  "teams": {
+    "title": "Equipos Pokémon",
+    "description": "Consulta los equipos de todos tus entrenadores y elige cuál quieres editar.",
+    "emptyTitle": "Todavía no tienes entrenadores",
+    "emptyDescription": "Crea un entrenador para comenzar a formar su equipo Pokémon.",
+    "noTeam": "Este entrenador todavía no tiene Pokémon seleccionados.",
+    "choose": "Elegir Pokémon",
+    "edit": "Editar equipo",
+    "view": "Ver equipo y estadísticas",
+    "viewAll": "Ver todos los equipos",
+    "loadError": "No pudimos cargar este equipo. Puedes reintentar o abrir la selección para editarlo."
   }
 }

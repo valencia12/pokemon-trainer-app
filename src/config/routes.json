@@ -2,5 +2,8 @@
   "home": "/",
   "setup": "/entrenador",
   "team": "/equipo",
-  "profile": "/perfil"
+  "profile": "/perfil",
+  "newTrainer": "/entrenador/nuevo",
+  "teams": "/equipos",
+  "trainerReview": "/entrenador/ver"
 }

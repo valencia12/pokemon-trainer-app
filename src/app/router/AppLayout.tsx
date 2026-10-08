@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { routes, texts } from '../../lib/config'
 import { ThemeToggle } from '../../components/ui/ThemeToggle'
 import { Icon } from '../../components/ui/Icon'
@@ -8,11 +8,12 @@ import { useTrainer } from '../../hooks/useTrainer'
 
 export function AppLayout() {
   const { state, storageError } = useTrainer()
+  const { pathname } = useLocation()
   const copy = texts.dashboard
   const links: { to: string; label: string; icon: IconName; available: boolean }[] = [
     { to: routes.home, label: texts.navigation.home, icon: 'home', available: true },
-    { to: routes.setup, label: copy.trainersNav, icon: 'user', available: true },
-    { to: routes.team, label: copy.pokemonNav, icon: 'ball', available: !!state.trainer },
+    { to: state.trainer ? routes.trainerReview : routes.setup, label: copy.trainersNav, icon: 'user', available: true },
+    { to: routes.teams, label: copy.pokemonNav, icon: 'ball', available: true },
     { to: routes.profile, label: copy.summaryNav, icon: 'document', available: !!state.trainer && state.team.length === 3 },
   ]
   return (
@@ -21,7 +22,7 @@ export function AppLayout() {
         <Link to={routes.home} className="flex h-20 items-center gap-3 border-b border-white/10 px-6 text-xl font-extrabold"><span className="flex size-10 items-center justify-center"><Icon name="ball" className="size-7" /></span><span>{copy.brandName}<span className="text-accent">{copy.brandSuffix}</span></span></Link>
         <nav className="flex gap-1 overflow-x-auto px-3 py-3 lg:flex-col lg:gap-2 lg:py-5" aria-label={texts.app.navigation}>
           {links.map(item => item.available ? (
-            <NavLink key={item.to} to={item.to} end className={({ isActive }) => `flex shrink-0 items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-colors ${isActive ? 'bg-action text-white shadow-lg shadow-black/10' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}><Icon name={item.icon} className="size-5" />{item.label}</NavLink>
+            <NavLink key={item.to} to={item.to} end={item.to !== routes.setup} className={({ isActive }) => `flex shrink-0 items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-colors ${isActive || (item.icon === 'user' && [routes.setup, routes.newTrainer, routes.trainerReview].includes(pathname)) || (item.to === routes.teams && pathname === routes.team) ? 'bg-action text-white shadow-lg shadow-black/10' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}><Icon name={item.icon} className="size-5" />{item.label}</NavLink>
           ) : (
             <span key={item.to} aria-disabled="true" title={copy.lockedHint} className="flex shrink-0 items-center gap-3 rounded-xl px-4 py-3.5 text-sm text-white/35"><Icon name={item.icon} />{item.label}</span>
           ))}

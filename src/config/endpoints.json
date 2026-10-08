@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://pokeapi.co/api/v2/",
   "pokemon": "pokemon",
-  "firstGenerationLimit": 151
+  "firstGenerationLimit": 151,
+  "pokemonDetails": "pokemon/{id}"
 }
