@@ -25,7 +25,7 @@ npm run lint
 - `src/features/trainer`: componentes, validaciones y tipos del entrenador.
 - `src/features/pokemon`: componentes, servicios HTTP y tipos de Pokémon.
 - `src/pages`: composición de las pantallas.
-- `src/stores`: estado y acciones; usamos Context + reducer, permitido por la prueba.
+- `src/stores`: estado y acciones mediante Context + reducer.
 - `src/hooks`: acceso reutilizable al estado.
 - `src/lib`: configuración y cliente HTTP encapsulado con fetch.
 - `src/config`: JSON de textos, rutas de navegación y endpoints.
@@ -43,8 +43,7 @@ para que los enlaces directos funcionen con BrowserRouter.
 
 ## Gitflow
 
-El repositorio usa Gitflow. La base inicial está en `main` y `develop`.
-Este primer cambio de documentación se realiza en `feature/gitflow-workflow`.
+El repositorio usa Gitflow. Las ramas de funcionalidades parten de `develop`.
 
 - `main`: versiones estables.
 - `develop`: integración de funcionalidades.
@@ -52,16 +51,26 @@ Este primer cambio de documentación se realiza en `feature/gitflow-workflow`.
 - `release/...`: preparación de entregas desde `develop`; se integra en `main` y `develop`.
 - `hotfix/...`: correcciones urgentes desde `main`; se integra en `main` y `develop`.
 
+Las ramas iniciales de trabajo son:
+
+- `feature/gitflow-workflow`: configuración del repositorio y flujo de trabajo.
+- `feature/trainer-setup`: formulario, validaciones y persistencia del entrenador.
+- `feature/pokemon-selection`: carga, búsqueda y selección del equipo.
+- `feature/trainer-profile`: perfil, estadísticas y edición del entrenador y equipo.
+
+Las ramas `release/...` y `hotfix/...` se crean cuando hay una entrega o una
+corrección concreta que preparar.
+
 Cada funcionalidad se entrega en un único commit en su rama. Antes de integrarla,
 se revisan los cambios y se ejecutan las comprobaciones correspondientes.
-Los commits y comentarios del código se escriben en inglés, sin atribuciones automáticas.
+Los commits y comentarios del código se escriben en inglés.
 Los mensajes de commit usan un prefijo como `feat:`, `fix:` o `docs:`.
 
 Ejemplo para la siguiente funcionalidad:
 
 ```sh
 git switch develop
-git switch -c feature/trainer-setup
+git switch feature/trainer-setup
 # Implementar y verificar la funcionalidad antes de crear su commit.
 git add src README.md
 git commit -m "feat: implement trainer setup"
@@ -71,3 +80,12 @@ git merge --no-ff feature/trainer-setup
 
 El commit de merge conserva el historial de la rama y es independiente del único
 commit de implementación de la funcionalidad.
+
+## Documentación local
+
+La carpeta `docs/`, incluidos los requisitos, se conserva localmente y está
+excluida del control de versiones mediante `.gitignore`.
+
+## Repositorio
+
+[pokemon-trainer-app](https://github.com/valencia12/pokemon-trainer-app)

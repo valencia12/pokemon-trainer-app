@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Local assessment reference
-/docs/requirements.md
+# Local documentation and requirements
+/docs/
 
 # Editor directories and files
 .vscode/*
