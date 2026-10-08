@@ -5,4 +5,5 @@ import type { TrainerAction, TrainerState } from '../../stores/trainerReducer'
 export const TrainerContext = createContext<{
   state: TrainerState
   dispatch: Dispatch<TrainerAction>
+  storageError: boolean
 } | null>(null)

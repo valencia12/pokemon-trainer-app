@@ -11,7 +11,37 @@
   },
   "setup": {
     "title": "Configura tu perfil de entrenador",
-    "description": "Aquí construiremos el formulario con foto, nombre, pasatiempo, fecha de nacimiento y documento de identificación."
+    "description": "Completa tus datos para comenzar a construir tu equipo Pokémon.",
+    "step": "Paso 1 de 3 · Entrenador",
+    "form": {
+      "requiredHint": "Los campos marcados con * son obligatorios.",
+      "photo": "Foto del entrenador",
+      "photoAlt": "Vista previa de la foto del entrenador",
+      "photoPlaceholder": "Tu foto aparecerá aquí",
+      "uploadPhoto": "Seleccionar foto",
+      "photoHint": "JPG, PNG o WebP. Tamaño máximo: 2 MB.",
+      "readingPhoto": "Procesando foto…",
+      "name": "Nombre",
+      "hobby": "Pasatiempo favorito",
+      "optional": "Opcional",
+      "birthDate": "Fecha de nacimiento",
+      "age": "Edad",
+      "years": "años",
+      "ageHint": "Tu edad se calculará con la fecha de nacimiento.",
+      "dui": "DUI",
+      "minorDocument": "Carnet de minoridad",
+      "duiHint": "Ingresa 9 dígitos; el guion se agrega automáticamente.",
+      "continue": "Guardar y elegir equipo",
+      "errorSummary": "Revisa los campos indicados antes de continuar.",
+      "errors": {
+        "required": "Este campo es obligatorio.",
+        "invalidDate": "Ingresa una fecha válida que no sea futura.",
+        "invalidDui": "El DUI debe tener el formato 00000000-0.",
+        "photoType": "Selecciona una imagen JPG, PNG o WebP.",
+        "photoSize": "La foto debe pesar como máximo 2 MB.",
+        "photoRead": "No pudimos leer la imagen. Selecciona otra foto."
+      }
+    }
   },
   "team": {
     "title": "Elige tu equipo Pokémon",
@@ -25,6 +55,7 @@
     "pending": "Pantalla en preparación",
     "back": "Volver al inicio",
     "loading": "Cargando…",
-    "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo."
+    "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo.",
+    "storageError": "Tus datos están disponibles en esta sesión, pero no pudimos guardarlos en el navegador. Podrían perderse al recargar."
   }
 }

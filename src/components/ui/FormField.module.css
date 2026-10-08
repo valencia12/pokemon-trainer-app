@@ -1,0 +1,7 @@
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.field label { font-weight: 650; }
+.field input { width: 100%; border: 1px solid #8799b0; border-radius: 10px; padding: 13px 14px; font: inherit; color: #20334a; background: white; }
+.field input:focus-visible { outline: 3px solid #234f9b; outline-offset: 2px; }
+.field input[aria-invalid="true"] { border-color: #a51d32; }
+.field small { color: #53647a; line-height: 1.5; }
+.error { color: #a51d32; font-size: 14px; }

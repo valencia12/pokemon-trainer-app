@@ -13,4 +13,5 @@ nav a.active { background: #234f9b; color: white; }
 h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; }
 p { line-height: 1.7; max-width: 640px; color: #53647a; }
 a:focus-visible { outline: 3px solid #d39a20; outline-offset: 4px; }
+.storage-warning { max-width: none; padding: 16px; border: 1px solid #a65b16; border-radius: 12px; color: #75400f; background: #fff5e8; }
 @media (max-width: 640px) { .app-header { align-items: flex-start; flex-direction: column; margin-bottom: 32px; } nav a { padding: 10px; } }

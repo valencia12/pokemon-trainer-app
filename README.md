@@ -4,9 +4,17 @@ Aplicación de React, TypeScript y Vite para configurar un entrenador y elegir u
 
 ## Estado actual
 
-Base de arquitectura y navegación. Las tres páginas son marcadores de posición;
-el formulario, la selección, las estadísticas y la persistencia todavía están pendientes.
-Las rutas de equipo y perfil están protegidas y vuelven al formulario mientras no haya entrenador.
+El formulario del entrenador permite cargar una foto, ingresar nombre, pasatiempo,
+fecha de nacimiento y documento. Calcula la edad, exige DUI a partir de los 18 años
+y agrega su guion automáticamente; para menores, el carnet es opcional.
+
+Los datos se guardan en localStorage y se recuperan al recargar. Si el navegador
+no permite guardarlos, se muestra un aviso y la aplicación sigue funcionando
+durante la sesión. La foto admite JPG, PNG y WebP hasta 2 MB.
+
+La selección de Pokémon y la pantalla de perfil todavía están pendientes.
+Las rutas de equipo y perfil requieren un entrenador; el perfil también requiere
+un equipo de tres Pokémon.
 
 ## Desarrollo
 
