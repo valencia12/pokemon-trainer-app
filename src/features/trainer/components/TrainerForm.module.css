@@ -1,0 +1,15 @@
+.form { margin-top: 24px; }
+.required { font-size: 14px; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; }
+.photoSection h2 { font-size: 18px; margin-top: 0; }
+.preview { width: 180px; height: 180px; border-radius: 50%; background: #eaf1ff; display: flex; align-items: center; justify-content: center; margin: 20px auto 28px; overflow: hidden; text-align: center; padding: 0; color: #234f9b; }
+.preview img { width: 100%; height: 100%; object-fit: cover; }
+.preview span { padding: 20px; }
+.fields { display: flex; flex-direction: column; gap: 20px; }
+.age { margin: -8px 0 0; font-size: 14px; }
+.error { color: #a51d32; }
+.actions { display: flex; justify-content: flex-end; margin-top: 32px; }
+.actions button { border: 0; border-radius: 12px; color: white; background: #234f9b; padding: 15px 24px; font: inherit; font-weight: 650; cursor: pointer; }
+.actions button:focus-visible { outline: 3px solid #d39a20; outline-offset: 4px; }
+.actions button:disabled { opacity: .6; cursor: wait; }
+@media (max-width: 720px) { .layout { grid-template-columns: 1fr; gap: 24px; } .actions button { width: 100%; } }

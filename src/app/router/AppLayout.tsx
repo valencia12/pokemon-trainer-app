@@ -1,7 +1,9 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { routes, texts } from '../../lib/config'
+import { useTrainer } from '../../hooks/useTrainer'
 
 export function AppLayout() {
+  const { storageError } = useTrainer()
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -12,7 +14,10 @@ export function AppLayout() {
           <NavLink to={routes.profile}>{texts.navigation.profile}</NavLink>
         </nav>
       </header>
-      <main><Outlet /></main>
+      <main>
+        {storageError && <p role="alert" className="storage-warning">{texts.common.storageError}</p>}
+        <Outlet />
+      </main>
     </div>
   )
 }
