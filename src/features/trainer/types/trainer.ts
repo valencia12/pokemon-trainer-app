@@ -5,3 +5,9 @@ export interface Trainer {
   birthDate: string
   document: string
 }
+
+export interface TrainerProfile {
+  id: string
+  trainer: Trainer
+  team: number[]
+}

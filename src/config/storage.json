@@ -1,0 +1,5 @@
+{
+  "trainerKey": "pokemon-trainer:v2",
+  "legacyTrainerKey": "pokemon-trainer:v1",
+  "migratedTrainerId": "legacy-trainer"
+}
