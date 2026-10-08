@@ -252,3 +252,33 @@ El archivo `.env` se ignora en Git; `.env.example` sirve de plantilla. Reinicia 
 El plan de pruebas básico está en [TEST_PLAN.md](TEST_PLAN.md).
 
 El tema sigue la preferencia del sistema mientras no exista una elección manual guardada. Al usar la luna, se conserva el tema elegido. Los cambios de color tienen una transición suave de 280 ms, desactivada cuando el usuario solicita movimiento reducido. La carga inicial no se anima.
+
+## Docker y entrega como archivo
+
+El Dockerfile compila con Node y sirve `dist` con Nginx. La configuración permite recargar rutas de React como `/equipos`. `.dockerignore` excluye las dependencias locales, Git, `.env` y las entregas generadas.
+
+Con Docker Desktop iniciado y `.env` creado desde `.env.example`, puedes ejecutar la aplicación desde el código:
+
+```bash
+docker compose up --build -d
+```
+
+Abre http://localhost:8080. Detén el servicio con `docker compose down`.
+
+Para generar la entrega para una computadora Intel/AMD:
+
+```bash
+sh scripts/export-docker.sh amd64
+```
+
+Para una computadora ARM, como un Mac con chip M:
+
+```bash
+sh scripts/export-docker.sh arm64
+```
+
+El script necesita Node en la computadora que genera la entrega para leer la configuración de Compose. Construye la imagen para la arquitectura elegida, comprueba la configuración de Nginx y que `/` y `/equipos` sirven la aplicación; después exporta la imagen.
+
+Envía los dos archivos de `delivery/amd64/` o `delivery/arm64/`: `pokemon-trainer-app.tar` e `INSTRUCCIONES.md`. El destinatario solo necesita Docker e internet. La entrega contiene únicamente los archivos compilados y el servidor; no incluye tus entrenadores locales.
+
+La variable `VITE_POKE_API_BASE_URL` se toma de `.env` al construir la imagen. Para cambiarla, reconstruye y exporta de nuevo. El `.env` no se copia a la imagen.
