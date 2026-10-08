@@ -43,19 +43,31 @@ para que los enlaces directos funcionen con BrowserRouter.
 
 ## Gitflow
 
-El entorno de edición actual no permite crear `.git`. Inicializa desde tu terminal:
+El repositorio usa Gitflow. La base inicial está en `main` y `develop`.
+Este primer cambio de documentación se realiza en `feature/gitflow-workflow`.
+
+- `main`: versiones estables.
+- `develop`: integración de funcionalidades.
+- `feature/...`: una rama por funcionalidad, creada desde `develop`.
+- `release/...`: preparación de entregas desde `develop`; se integra en `main` y `develop`.
+- `hotfix/...`: correcciones urgentes desde `main`; se integra en `main` y `develop`.
+
+Cada funcionalidad se entrega en un único commit en su rama. Antes de integrarla,
+se revisan los cambios y se ejecutan las comprobaciones correspondientes.
+Los commits y comentarios del código se escriben en inglés, sin atribuciones automáticas.
+Los mensajes de commit usan un prefijo como `feat:`, `fix:` o `docs:`.
+
+Ejemplo para la siguiente funcionalidad:
 
 ```sh
-git init -b main
-git add .
-git commit -m "chore: initialize application architecture"
-git switch -c develop
+git switch develop
 git switch -c feature/trainer-setup
+# Implementar y verificar la funcionalidad antes de crear su commit.
+git add src README.md
+git commit -m "feat: implement trainer setup"
+git switch develop
+git merge --no-ff feature/trainer-setup
 ```
 
-`main` contiene versiones estables. `develop` integra funcionalidades.
-Cada funcionalidad usa una rama `feature/...` creada desde `develop`.
-Las entregas usan `release/...`; las correcciones urgentes, `hotfix/...` desde `main`.
-Los commits y comentarios del código se escriben en inglés, sin atribuciones automáticas.
-
-Los requisitos y el orden de implementación están en [docs/requirements.md](docs/requirements.md).
+El commit de merge conserva el historial de la rama y es independiente del único
+commit de implementación de la funcionalidad.
