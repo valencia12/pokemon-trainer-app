@@ -7,7 +7,8 @@
   "navigation": {
     "setup": "Entrenador",
     "team": "Equipo",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "home": "Inicio"
   },
   "setup": {
     "title": "Configura tu perfil de entrenador",
@@ -40,7 +41,8 @@
         "photoType": "Selecciona una imagen JPG, PNG o WebP.",
         "photoSize": "La foto debe pesar como máximo 2 MB.",
         "photoRead": "No pudimos leer la imagen. Selecciona otra foto."
-      }
+      },
+      "duiPlaceholder": "00000000-0"
     }
   },
   "team": {
@@ -57,5 +59,122 @@
     "loading": "Cargando…",
     "networkError": "No pudimos completar la solicitud. Inténtalo de nuevo.",
     "storageError": "Tus datos están disponibles en esta sesión, pero no pudimos guardarlos en el navegador. Podrían perderse al recargar."
+  },
+  "home": {
+    "title": "Tu aventura Pokémon",
+    "description": "Configura tu entrenador y prepara el equipo que te acompañará.",
+    "emptyTitle": "Comienza tu aventura",
+    "emptyDescription": "Todavía no tienes un entrenador guardado. Crea tu perfil para comenzar.",
+    "create": "Crear entrenador",
+    "savedTitle": "Tu entrenador",
+    "edit": "Editar entrenador",
+    "team": "Elegir equipo",
+    "editTeam": "Editar equipo",
+    "profile": "Ver perfil",
+    "teamPending": "Completa tu equipo de 3 Pokémon para consultar el perfil.",
+    "photoAlt": "Foto de tu entrenador",
+    "teamCount": "Pokémon en tu equipo"
+  },
+  "theme": {
+    "toggle": "Activar o desactivar el tema oscuro",
+    "light": "Tema claro",
+    "dark": "Tema oscuro"
+  },
+  "dashboard": {
+    "brandName": "Trainer",
+    "brandSuffix": "App",
+    "headerLabel": "Panel del entrenador",
+    "accountLabel": "Entrenador",
+    "trainersNav": "Entrenadores",
+    "pokemonNav": "Pokémon",
+    "summaryNav": "Resumen",
+    "lockedHint": "Completa los pasos anteriores para continuar.",
+    "sidebarMotto": "Explora\nEntrena\nColecciona\nTu propia historia",
+    "titles": [
+      "Fase 1 · Perfil del Entrenador",
+      "Fase 2 · Equipo Pokémon",
+      "Fase 3 · Resumen"
+    ],
+    "descriptions": [
+      "Crea tu perfil de entrenador o continúa con el que ya tienes configurado.",
+      "Busca tus Pokémon favoritos y forma un equipo de tres.",
+      "Tu entrenador y tu equipo, listos para la aventura."
+    ],
+    "stepsLabel": "Progreso de configuración",
+    "steps": [
+      "Perfil del entrenador",
+      "Equipo Pokémon",
+      "Resumen"
+    ],
+    "formTitle": "Información del entrenador",
+    "savedTitle": "Entrenador configurado",
+    "savedDescription": "Continúa con tu entrenador o edita su información.",
+    "continue": "Continuar",
+    "emptyTitle": "Aún no hay entrenadores configurados",
+    "emptyDescription": "Crea tu primer perfil para comenzar tu aventura.",
+    "savedHint": "Tus datos se guardan en este navegador.",
+    "welcomeTitle": "Prepara tu próxima aventura",
+    "welcomeDescription": "Elige cómo quieres continuar.",
+    "returnTitle": "¡Listo para continuar!",
+    "returnDescription": "Tu perfil ya está guardado. Completa tu equipo o edita tus datos en el menú.",
+    "localHint": "Tu progreso se guarda automáticamente en este navegador.",
+    "savedMessage": "Perfil guardado. Puedes continuar desde el panel del entrenador.",
+    "documentTitle": "Documento de identificación",
+    "adultHint": "Si eres mayor de edad: DUI obligatorio.",
+    "minorHint": "Si eres menor: carnet de minoridad opcional.",
+    "documentHint": "El tipo de documento se ajusta a tu edad al ingresar tu fecha de nacimiento.",
+    "clear": "Limpiar",
+    "save": "Guardar perfil",
+    "namePlaceholder": "Escribe el nombre de tu entrenador…",
+    "hobbyPlaceholder": "Ej. Atrapar Pokémon, explorar, dibujar…",
+    "teamReady": "Tu equipo está completo. Puedes consultar tu perfil y continuar tu aventura.",
+    "emptyPanelTitle": "Entrenadores configurados",
+    "emptyPanelDescription": "Aquí aparecerá tu perfil cuando lo guardes.",
+    "createFirst": "Crear tu primer entrenador",
+    "createFirstHint": "Completa tu perfil y da el primer paso en tu viaje Pokémon."
+  },
+  "calendar": {
+    "placeholder": "dd/mm/aaaa",
+    "open": "Abrir calendario",
+    "close": "Cerrar calendario",
+    "previous": "Mes anterior",
+    "next": "Mes siguiente",
+    "month": "Mes",
+    "year": "Año",
+    "today": "Hoy",
+    "clear": "Limpiar fecha",
+    "selected": "Fecha seleccionada",
+    "months": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
+    "weekdays": [
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado",
+      "Domingo"
+    ],
+    "shortWeekdays": [
+      "L",
+      "M",
+      "X",
+      "J",
+      "V",
+      "S",
+      "D"
+    ]
   }
 }
